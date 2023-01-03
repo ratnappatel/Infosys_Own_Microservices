@@ -1,0 +1,5 @@
+my:
+ message: Welcome to Spring Cloud Config Server
+  list: 
+   values: Uttam, Gargesh, Neelkanth
+        
