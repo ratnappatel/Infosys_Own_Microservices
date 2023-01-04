@@ -11,8 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
 	
 	@Id
@@ -23,52 +30,7 @@ public class Post {
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="post_id",referencedColumnName="id")
-	List<Comment> comments=new ArrayList<Comment>();
+	List<Comment> comments=new ArrayList<>();
 	
-	public Post() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Post(String title, String description) {
-		super();
-		this.title = title;
-		this.description = description;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	@Override
-	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", description=" + description + ", comments=" + comments + "]";
-	}
+	
 }

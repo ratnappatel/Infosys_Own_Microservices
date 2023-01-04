@@ -1,10 +1,10 @@
 package com.infy.service;
 
-import com.infy.entity.Post;
+import com.infy.dto.PostDTO;
 
 public interface PostService {
-	public Post addPost(Post post);
+	public PostDTO addPost(PostDTO post);
 	
-	public Post getPost(Integer id);
+	public PostDTO getPost(Integer id);
 
 }

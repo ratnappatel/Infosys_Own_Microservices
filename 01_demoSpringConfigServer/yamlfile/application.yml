@@ -1,5 +1,14 @@
 my:
  message: Welcome to Spring Cloud Config Server
-  list: 
-   values: Uttam, Gargesh, Neelkanth
-        
+ list:
+  values: Neel, Gargesh, Uttam
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_posts
+    username: root
+    password: Mysql@123
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
