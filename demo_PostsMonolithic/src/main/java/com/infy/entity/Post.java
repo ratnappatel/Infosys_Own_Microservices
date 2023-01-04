@@ -29,7 +29,7 @@ public class Post {
 	private String description;
 	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="post_id",referencedColumnName="id")
+	@JoinColumn(name="postid",referencedColumnName="id")
 	List<Comment> comments=new ArrayList<>();
 	
 	
