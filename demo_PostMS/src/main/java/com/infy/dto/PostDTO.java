@@ -18,6 +18,12 @@ public class PostDTO {
 			this.description = description;
 			this.comments = comments;
 		}
+		public PostDTO(int id, String title, String description) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.description = description;
+		}
 		public int getId() {
 			return id;
 		}

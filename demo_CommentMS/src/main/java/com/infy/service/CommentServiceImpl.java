@@ -17,5 +17,8 @@ public class CommentServiceImpl implements CommentService{
 		
 		return repository.findByPostid(post_id);
 	}
-
+	@Override
+	public Comment addComment(Comment comment) {
+		return repository.save(comment);
+	}
 }

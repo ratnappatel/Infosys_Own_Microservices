@@ -2,11 +2,12 @@ package com.infy.api;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -38,5 +39,16 @@ public class PostController {
 		
 		return postDTO;
 	}
+	
+	@PostMapping("/posts")
+	public ResponseEntity<PostDTO> addNewPost(@RequestBody PostDTO postDTO)
+	{
+		service.addPost(postDTO);
+		RestTemplate template=new RestTemplate();
+		CommentDTO comments=template.postForEntity("http://localhost:8100/comments", postDTO.getComments(), CommentDTO.class).getBody();
+		
+		return new ResponseEntity<>();
+	}
+	
 
 }

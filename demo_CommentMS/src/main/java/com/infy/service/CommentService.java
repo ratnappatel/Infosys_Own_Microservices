@@ -7,5 +7,6 @@ import com.infy.entity.Comment;
 public interface CommentService {
 	
 	public List<Comment> getComments(int post_id);
+	public Comment addComment(Comment comment);
 
 }
