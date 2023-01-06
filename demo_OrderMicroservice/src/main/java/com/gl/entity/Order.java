@@ -2,11 +2,11 @@ package com.gl.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,17 +16,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="orders")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@Column(name="order_amount")
-	private float orderAmount;
-	
-	@Column(name="order_date")
-	private LocalDate orderDate;
-	@Column(name="user_id")
+	private float amount;
+	private LocalDate orderdate;
 	private int userid;
 
 }

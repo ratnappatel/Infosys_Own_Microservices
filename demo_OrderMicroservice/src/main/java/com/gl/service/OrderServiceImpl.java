@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
 	OrderDetailsRepository detailsRepository;
 	
 	@Override
-	public Order getOrder(int userId) {
+	public List<Order> getOrder(int userId) {
 		return orderRepository.findByUserid(userId);
 	}
 	@Override

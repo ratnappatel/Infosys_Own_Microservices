@@ -1,6 +1,8 @@
 package com.gl.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,10 +27,17 @@ public class OrderController {
 	@GetMapping("/orders/{userId}")
 	public ResponseEntity<OrderDTO> getOrderDetails(@PathVariable Integer userId)
 	{
-		Order order=service.getOrder(userId);
-		List<OrderDetails> details=service.getOrderDetails(order.getId());
 		
-		OrderDTO orderDTO=new OrderDTO(order,details);
+		List<Order> orders=service.getOrder(userId);
+		Map<Integer,List<OrderDetails>> orderDetails=new HashMap<>();
+		orders.forEach(o->{
+			
+			List<OrderDetails> details=service.getOrderDetails(o.getId());
+			orderDetails.put(o.getId(), details);
+		});		
+		OrderDTO orderDTO=new OrderDTO(orders,orderDetails);
+		System.out.println(orderDTO.getOrders());
+		System.out.println(orderDTO.getDetails());
 		
 		return new ResponseEntity<>(orderDTO,HttpStatus.OK);
 		

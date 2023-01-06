@@ -7,7 +7,7 @@ import com.gl.entity.OrderDetails;
 
 public interface OrderService {
 	
-	public Order getOrder(int userId);	
+	public List<Order> getOrder(int userId);	
 	public List<OrderDetails> getOrderDetails(int orderId);
 
 }

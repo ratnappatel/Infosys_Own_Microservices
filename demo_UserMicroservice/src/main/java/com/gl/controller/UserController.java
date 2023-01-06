@@ -25,9 +25,9 @@ public class UserController {
 		
 		RestTemplate template=new RestTemplate();
 		String url="http://localhost:8200/orders/{userId}";
-		ResponseEntity<OrderDTO> orders= (ResponseEntity<OrderDTO>)template.getForObject(url, Object.class, id);
-		
-		return orders;
+		OrderDTO response=template.getForObject(url, OrderDTO.class, id);
+		System.out.println(response);
+		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
 
 }

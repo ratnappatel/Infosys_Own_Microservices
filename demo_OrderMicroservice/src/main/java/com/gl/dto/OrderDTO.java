@@ -1,6 +1,7 @@
 package com.gl.dto;
 
 import java.util.List;
+import java.util.Map;
 
 import com.gl.entity.Order;
 import com.gl.entity.OrderDetails;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OrderDTO {
 	
-	private Order order;
-	private List<OrderDetails> details;
+	private List<Order> orders;
+	private Map<Integer,List<OrderDetails>> details;
 
 }
