@@ -16,8 +16,7 @@ public class OrderDTO {
 		private Map<Integer,List<OrderDetails>> details;
 		public OrderDTO()
 		{
-			order=new ArrayList<Order>();
+			order=new ArrayList<>();
 			details=new HashMap<>();
 		}
-
 	}

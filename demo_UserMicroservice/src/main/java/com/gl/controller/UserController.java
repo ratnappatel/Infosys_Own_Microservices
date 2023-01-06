@@ -24,8 +24,9 @@ public class UserController {
 		int id=service.authenticateUser(user.getUsername(), user.getPassword());
 		
 		RestTemplate template=new RestTemplate();
-		String url="http://localhost:8200/orders/{userId}";
+		String url="http://localhost:8004/orders/{userId}";
 		OrderDTO response=template.getForObject(url, OrderDTO.class, id);
+		
 		System.out.println(response);
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
